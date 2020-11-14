@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Success With Us</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -53,7 +53,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('backend_asset/pexels-negative-space-169573.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Success With Us</a>
@@ -66,8 +66,11 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
+          <li class="nav-item ">
+            <a href="{{ route('teacher.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Teacher
@@ -75,10 +78,38 @@
               </p>
             </a>
 
-            <a href="#" class="nav-link">
+          <li class="nav-item ">
+            <a href="{{ route('project.index') }}" class="nav-link active">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Project
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <li class="nav-item ">
+            <a href="{{ route('company.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Company
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          <li class="nav-item ">
+            <a href="{{ route('course.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Course
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+          </li>
+          <li class="nav-item ">
+            <a href="{{ route('student.index') }}" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Student
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -99,14 +130,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1></h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
-          </div>
+          @yield('header')
         </div>
       </div><!-- /.container-fluid -->
     </section>

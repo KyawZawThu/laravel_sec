@@ -22,6 +22,8 @@ Route::get('backend', function(){
 });
 
 Route::resource('teacher', 'TeacherController');
+Route::resource('student', 'StudentController');
+Route::resource('course', 'CourseController');
 Route::resource('project', 'ProjectController');
 Route::post('confirm/{id}','ProjectController@confirm')->name('project.confirm');
 Route::resource('company', 'CompanyController');

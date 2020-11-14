@@ -14,7 +14,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher.index');
+        $teachers = Teacher::all();
+        return view('teacher.index', compact('teachers'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher.create');
     }
 
     /**
@@ -35,7 +36,38 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // dd($request);
+        $request->validate([
+            "name" => "required|min:5",
+            "description" => "required",
+            "email" => "required",
+            "photo" => "required"
+        ]);
+
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('teacherimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        // store
+        $teacher = new Teacher;
+
+        $teacher->name = $request->name;
+        $teacher->description = $request->description;
+        $teacher->email = $request->email;
+        $teacher->photo = $path;
+        $teacher->save();
+
+        // redirect
+        return redirect()->route('teacher.index');
     }
 
     /**
@@ -44,9 +76,10 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('teacher.show', compact('teacher'));
     }
 
     /**
@@ -55,9 +88,10 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        return view('teacher.edit', compact('teacher'));
     }
 
     /**
@@ -67,9 +101,41 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "name" => "sometimes|required|min:5",
+            "description" => "sometimes | required",
+            "email" => "sometimes| required",
+            "photo" => "sometimes| required",
+            "oldphoto"=>"required"
+        ]);
+
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('teacherimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        } else {
+            $path = $request->oldphoto;
+        }
+
+        // store
+        $teacher = Teacher::find($id);
+
+        $teacher->name = $request->name;
+        $teacher->description = $request->description;
+        $teacher->email = $request->email;
+        $teacher->photo = $path;
+        $teacher->save();
+
+        // redirect
+        return redirect()->route('teacher.index');
     }
 
     /**
@@ -78,8 +144,10 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy($id)
     {
-        //
+        $teacher = Teacher::find($id);
+        $teacher->delete();
+        return redirect()->route('teacher.index');
     }
 }
