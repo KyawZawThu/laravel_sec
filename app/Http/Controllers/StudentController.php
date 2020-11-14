@@ -14,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -35,7 +36,36 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|min:5",
+            "email" => "required",
+            "description" => "required",
+            "photo" => "required"
+        ]);
+
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('studentimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        // store
+        $student = new Student;
+
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->description = $request->description;
+
+        $student->photo = $path;
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**
@@ -44,9 +74,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        $student = Student::find($id);
+        return view('student.show', compact('student'));
     }
 
     /**
@@ -55,9 +86,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('student.edit', compact('student'));
     }
 
     /**
@@ -67,9 +99,46 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "name" => "sometimes | required|min:5",
+            "email" => "sometimes | required",
+            "description" => "sometimes |required",
+            "position" => "sometimes | required",
+            "est_salary"=>"sometimes | required",
+
+            "photo" => "sometimes | required",
+            "oldphoto" => "required"
+        ]);
+
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('studentimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        } else {
+            $path = $request->oldphoto;
+        }
+
+        // store
+
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->description = $request->description;
+        $student->position = $request->position;
+        $student->est_salary = $request->est_salary;
+
+        $student->photo = $path;
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**
@@ -78,8 +147,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('student.index');
     }
 }

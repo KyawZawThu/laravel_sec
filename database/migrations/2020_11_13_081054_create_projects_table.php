@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->text('description');
+            $table->integer('status');
             $table->unsignedBigInteger('student_id');
 
             $table->foreign('student_id')

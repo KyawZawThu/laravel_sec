@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
+use App\Teacher;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -24,7 +26,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $teachers = Teacher::all();
+        return view('course.create',compact('teachers'));
     }
 
     /**
@@ -35,7 +38,33 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        $request->validate([
+            "name" => "required",
+            "url"  => "required",
+            "photo"=> "required",
+            "teacher"=> "required"
+        ]);
+
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('courseimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        $course = new Course;
+        $course->name = $request->name;
+        $course->url = $request->url;
+        $course->photo = $path;
+        $course->teacher_id = $request->teacher;
+        $course->save();
+
+        return redirect()->route('course.index');
     }
 
     /**
