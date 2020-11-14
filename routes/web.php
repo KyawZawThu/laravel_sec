@@ -21,9 +21,11 @@ Route::get('backend', function(){
     return view('backend');
 });
 
-Route::get('frontend', function () {
-    return view('frontend');
-});
+// Route::get('frontend', function () {
+//     return view('frontend');
+// });
+
+Route::get('frontend','FrontendController@frontend')->name('mainpage');
 
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');

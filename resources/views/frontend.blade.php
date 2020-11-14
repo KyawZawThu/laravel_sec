@@ -757,6 +757,38 @@
       </div>
     </section><!-- End Frequently Asked Questions Section --> --}}
 
+    <section id="services" class="services section-bg ">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Students</h2>
+          <p>Our programs are carefully designed to give you the same experience and, most importantly, the same successful outcome. We have  premium courses at training people with zero coding experience and turning them into high-earning software engineers. After full course and project, the students have to pay 20% of their monthly salary for a year. Eighty percent of the above payment will be for the teachers and 20%, for us. The intention of this program is to develop the community of web development and computer science.
+        </p>
+        </div>
+
+        <div class="row">
+          @foreach($confirmed as $project)
+          <div class="col-md-6">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <i class="icofont-computer"></i>
+              
+              
+              <p>{{$project->student->name}}</p>
+              <p>{{$project->student->email}}</p>
+              <p>{{$project->student->description}}</p>
+              <p>{{$project->student->photo}}</p>
+              
+              <h4><a href="#">{{$project->url}}</a></h4>
+              
+              
+            </div>
+          </div>
+          @endforeach
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
