@@ -14,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $pending_projects=Project::where('status',0)->get();
+        $confirmed_projects=Project::where('status',1)->get();
+        return view('project.index', compact('pending_projects','confirmed_projects'));
     }
 
     /**
@@ -46,7 +48,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('project.show', compact('project'));
     }
 
     /**
@@ -81,5 +83,13 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    public function confirm($id)
+    {
+        $project=Project::find($id);
+        $project->status=1;
+        $project->save();
+        return back();
     }
 }
