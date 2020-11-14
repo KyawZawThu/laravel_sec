@@ -70,47 +70,47 @@
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
           <li class="nav-item ">
-            <a href="{{ route('teacher.index') }}" class="nav-link active">
+            <a href="{{ route('teacher.index') }}" class="nav-link {{ Request::is('teacher*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Teacher
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
 
           <li class="nav-item ">
-            <a href="{{ route('project.index') }}" class="nav-link active">
+            <a href="{{ route('project.index') }}" class="nav-link {{ Request::is('project*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Project
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
 
             <li class="nav-item ">
-            <a href="{{ route('company.index') }}" class="nav-link active">
+            <a href="{{ route('company.index') }}" class="nav-link {{ Request::is('company*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Company
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
           <li class="nav-item ">
-            <a href="{{ route('course.index') }}" class="nav-link active">
+            <a href="{{ route('course.index') }}" class="nav-link {{ Request::is('course*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Course
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
 
           </li>
           <li class="nav-item ">
-            <a href="{{ route('student.index') }}" class="nav-link active">
+            <a href="{{ route('student.index') }}" class="nav-link {{ Request::is('student*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Student
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
 

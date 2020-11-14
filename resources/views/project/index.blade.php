@@ -45,7 +45,7 @@
                 <td>{{$row->name}}</td>
                 <td>{{$row->url}}</td>
                 <td>
-                  <a href="{{route('project.show',$row->id)}}" class="fas fa-info-circle"></a>
+                  <a href="{{ route('project.show', $row->id) }}" class="btn btn-info"><i class="fas fa-info-circle fa-pulse"></i></a>
                 </td>
               </tr>
                @endforeach
