@@ -27,6 +27,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{  asset('frontend_asset/css/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Presento - v1.0.0
@@ -535,90 +538,34 @@
     </section><!-- End Portfolio Section --> --}}
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
+
         <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
-        </div>
-      </div>
+            <h2>Courses</h2>
+            <p>Our programs are carefully designed to give you the same experience and, most importantly, the same successful outcome. We have  premium courses at training people with zero coding experience and turning them into high-earning software engineers. After full course and project, the students have to pay 20% of their monthly salary for a year. Eighty percent of the above payment will be for the teachers and 20%, for us. The intention of this program is to develop the community of web development and computer science.
+          </p>
+          </div>
 
-      <div class="container-fluid">
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-10">
-            <div class="owl-carousel testimonials-carousel">
-
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat esse veniam culpa fore nisi cillum quid.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
+          <div class="row">
+            @foreach($courses as $row)
+            <div class="col-md-6">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset($row->photo) }}" class="card-img" alt="" style="max-width: 10rem" style="max-height: 5rem" >
+                <p>{{$row->name}}</p>
+                <p><a href="{{$row->url}}">{{$row->url}}</a></p>
+                <a href="" class="btn btn-danger">Take Course</a>
               </div>
 
             </div>
+            @endforeach
           </div>
-        </div>
+
+
+
 
       </div>
+
     </section><!-- End Testimonials Section -->
 
     <!-- ======= Pricing Section ======= -->
@@ -771,16 +718,16 @@
           <div class="col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <i class="icofont-computer"></i>
-              
-              
+
+
               <p>{{$project->student->name}}</p>
               <p>{{$project->student->email}}</p>
               <p>{{$project->student->description}}</p>
               <p>{{$project->student->photo}}</p>
-              
+
               <h4><a href="#">{{$project->url}}</a></h4>
-              
-              
+
+
             </div>
           </div>
           @endforeach
