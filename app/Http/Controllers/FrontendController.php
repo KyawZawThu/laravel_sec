@@ -18,5 +18,10 @@ class FrontendController extends Controller
     	return view('frontend', compact('projects','confirmed', 'courses', 'teachers'));
     }
 
+    public function scout($value='')
+  {
+    return view('frontend.scoutpage');
+  }
+
 
 }

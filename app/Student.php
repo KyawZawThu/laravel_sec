@@ -13,6 +13,12 @@ class Student extends Model
       	return $this->hasMany('App\Project');
   	  }
 
+  	  public function scouts()
+  	  {
+  	  	return $this->belongsToMany('App\Scout')
+  	  				->withTimestamps();	
+  	  }
+
 
     public function courses(){
         return $this->belongsToMany('App\Course')

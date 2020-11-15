@@ -28,7 +28,7 @@ Route::get('frontend2', function(){
 
 Route::get('frontend','FrontendController@frontend')->name('mainpage');
 // Route::get('frontend_student_login','FrontendController@frontend')->name('mainpage');
-
+Route::get('scout','FrontendController@scout')->name('scoutpage');
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 Route::resource('course', 'CourseController');
@@ -39,3 +39,4 @@ Route::resource('company', 'CompanyController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
