@@ -33,3 +33,7 @@ Route::resource('course', 'CourseController');
 Route::resource('project', 'ProjectController');
 Route::post('confirm/{id}','ProjectController@confirm')->name('project.confirm');
 Route::resource('company', 'CompanyController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
