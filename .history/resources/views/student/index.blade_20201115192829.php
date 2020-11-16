@@ -35,8 +35,8 @@
             @foreach($students as $row)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $row->user ->name }}</td>
-                    <td>{{ $row->user ->email }}</td>
+                    <td>{{ $row ->name }}</td>
+                    <td>{{ $row->email }}</td>
 
                     <td>
                         <a href="{{ route('student.edit', $row->id) }}" class="btn btn-warning"><i class="fas fa-cog fa-spin"></i></a>

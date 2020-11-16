@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Teacher;
-
+use App\User;
 
 class CourseController extends Controller
 {
@@ -16,7 +16,6 @@ class CourseController extends Controller
      */
     public function index()
     {
-
         $courses = Course::all();
         return view('course.index', compact('courses'));
     }

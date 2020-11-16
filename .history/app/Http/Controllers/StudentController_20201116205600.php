@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Teacher;
+use App\Student;
 use Illuminate\Http\Request;
 use App\User;
+
 use Illuminate\Support\Facades\Hash;
+use App\CorseStudent;
 
 
-class TeacherController extends Controller
+
+
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +21,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::all();
-        return view('teacher.index', compact('teachers'));
+        $students = Student::all();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -28,7 +32,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('teacher.create');
+        return view('student.create');
     }
 
     /**
@@ -39,13 +43,12 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-
         // dd($request);
         $request->validate([
             "name" => "required|min:5",
-            "description" => "required",
             "email" => "required",
-            "photo" => "required"
+            "description" => "sometimes | required",
+            "photo" => "sometimes | required"
         ]);
 
 
@@ -55,70 +58,82 @@ class TeacherController extends Controller
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             // brandimg/624872374523_a.jpg
-            $filePath = $request->file('photo')->storeAs('teacherimg', $fileName, 'public');
+            $filePath = $request->file('photo')->storeAs('studentimg', $fileName, 'public');
 
             $path = '/storage/'.$filePath;
         }
 
+        // store
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-        // store
-        $teacher = new Teacher;
 
-        $teacher->name = $request->name;
-        $teacher->description = $request->description;
+        $corsestudent = new CorseStudent;
+        $corsestudent->save();
 
-        $teacher->photo = $path;
-        $teacher->user_id = $user->id;
-        $teacher->save();
+        $student = new Student;
 
-        // redirect
-        $user->assignRole('admin');
-        return redirect()->route('teacher.index');
+        $student->description = $request->description;
+        $student->position = $request ->position;
+        $student->est_salary = $request ->est_salary;
+
+        $student->photo = $path;
+        $student->user_id = $user->id;
+        $student->save();
+
+
+
+
+
+        $user->assignRole('student');
+
+        return redirect()->route('home');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $teacher = Teacher::find($id);
-        return view('teacher.show', compact('teacher'));
+        $student = Student::find($id);
+        return view('student.show', compact('student'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $teacher = Teacher::find($id);
-        return view('teacher.edit', compact('teacher'));
+        $student = Student::find($id);
+        return view('student.edit', compact('student'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            "name" => "sometimes|required|min:5",
-            "description" => "sometimes | required",
-            "email" => "sometimes| required",
-            "photo" => "sometimes| required",
-            "oldphoto"=>"required"
+            "name" => "sometimes | required|min:5",
+            "email" => "sometimes | required",
+            "description" => "sometimes |required",
+            "position" => "sometimes | required",
+            "est_salary"=>"sometimes | required",
+
+            "photo" => "sometimes | required",
+            "oldphoto" => "required"
         ]);
 
 
@@ -128,7 +143,7 @@ class TeacherController extends Controller
             $fileName = time().'_'.$request->photo->getClientOriginalName();
 
             // brandimg/624872374523_a.jpg
-            $filePath = $request->file('photo')->storeAs('teacherimg', $fileName, 'public');
+            $filePath = $request->file('photo')->storeAs('studentimg', $fileName, 'public');
 
             $path = '/storage/'.$filePath;
         } else {
@@ -136,28 +151,30 @@ class TeacherController extends Controller
         }
 
         // store
-        $teacher = Teacher::find($id);
 
-        $teacher->name = $request->name;
-        $teacher->description = $request->description;
-        $teacher->email = $request->email;
-        $teacher->photo = $path;
-        $teacher->save();
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->description = $request->description;
+        $student->position = $request->position;
+        $student->est_salary = $request->est_salary;
 
-        // redirect
-        return redirect()->route('teacher.index');
+        $student->photo = $path;
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $teacher = Teacher::find($id);
-        $teacher->delete();
-        return redirect()->route('teacher.index');
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('student.index');
     }
 }
