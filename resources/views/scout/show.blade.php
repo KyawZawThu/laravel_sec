@@ -19,7 +19,9 @@
       <p>Notes: {{$scout->notes}}</p>
       <p>Contact: {{$scout->user->email}}</p>
       <p>Date: {{$scout->scoutdate}}</p>
-      {{-- <p>Student: {{$student->name}}</p> --}}
+      @foreach($scout->students as $student)
+      <p>Student: {{$student->name}}</p>
+      @endforeach
 
       @if($scout->status==0)
       <form method="post" action="{{route('scout.confirmsc', $scout->id)}}">

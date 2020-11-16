@@ -33,6 +33,7 @@ Route::get('frontend','FrontendController@frontend')->name('mainpage');
 // Route::get('frontend_student_login','FrontendController@frontend')->name('mainpage');
 
 Route::get('detailsc','FrontendController@detailsc')->name('detailsc');
+Route::get('uploadpj','FrontendController@uploadpj')->name('uploadpj');
 
 Route::get('scout','FrontendController@scout')->name('scoutpage');
 Route::get('frontend_registration', 'FrontendController@frontend_registration')->name('student_registration');

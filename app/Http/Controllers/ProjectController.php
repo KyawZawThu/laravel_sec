@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
-
+use Auth;
 class ProjectController extends Controller
 {
     /**
@@ -37,7 +37,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project;
+        $project->scoutdate = $orderdate;
+        $project->notes = $notes;
+        $project->user_id = Auth::id(); // current logined user_id
+        $project->save();
     }
 
     /**

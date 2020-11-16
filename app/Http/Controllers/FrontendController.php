@@ -36,5 +36,10 @@ public function frontend_company_register($value=''){
     return view('frontend.frontend_company_register');
 }
 
+    public function uploadpj($value='')
+  {
+    return view('frontend.upload');
+  }
+
 
 }

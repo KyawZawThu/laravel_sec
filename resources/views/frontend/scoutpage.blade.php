@@ -180,7 +180,7 @@
                   <a href="{{route('mainpage')}}" class="btn btn-primary bk"> Back </a>
                 <form method="" action="" class="getin">
                 @csrf
-                  <a href="{{route('mainpage')}}" class="btn btn-success mt-2 chec">Get in Touch</a>
+                 <button class="btn btn-success mt-2 chec">Get in Touch</button>
                 
                </div>
                <div class="paw"></div>
@@ -358,6 +358,6 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
   <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
-  @include('sweetalert::alert')
+  {{-- @include('sweetalert::alert') --}}
    </body>
 </html>
