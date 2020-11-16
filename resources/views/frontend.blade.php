@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Mentor Bootstrap Template - Index</title>
+
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -29,6 +29,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('frontend_asset/css/style.css')}}" rel="stylesheet">
+
+  <i class="fas fa-check-double"></i>
+  <title>Success With Us</title>
 
   <!-- =======================================================
   * Template Name: Mentor - v2.1.0
@@ -55,7 +58,9 @@
           <li><a href="#why-us">Student</a></li>
 
           <li><a href="#popular-courses">Courses</a></li>
-          <li><a href="#trainers">Trainers</a></li>
+          <li><a href="#teachers">Trainers</a></li>
+          <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
+          <li><a href="{{route( 'company_register' )}}">Company</a></li>
 
 
 
@@ -145,133 +150,48 @@
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
-      <div class="container" data-aos="fade-up">
 
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Why Choose Us?</h3>
-              <p>
-                Our system pioneered the deferred tuition model.We have helped thousands of people like you access the best coding course with no tuition due until you have a job. Eduction is the most powerful weapon to change the world. So we provide you to free education. Your success is our success.
-              </p>
-              <div class="text-center">
-                <a href="#about" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+        <section id="trainers" class="trainers">
+            <div class="container" data-aos="fade-up">
+
+              <div class="section-title">
+                <h2>Student</h2>
+                <p>Our Student</p>
               </div>
+
+
+
+              <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                  @foreach($students as $row)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="member">
+                    <img src="{{ asset( $row->photo ) }}" class="img-fluid" alt="">
+                    <div class="member-content">
+
+                      <h4>{{ $row->user->name}}</h4>
+                      <h4>{{ $row->description }}</h4>
+
+                      <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+
+
+
+              </div>
+
             </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
+          </section>
 
-      </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= Features Section ======= -->
-    {{-- <section id="features" class="features">
-      <div class="container" data-aos="fade-up">
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Sed perspiciatis</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Magni Dolores</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Nemo Enim</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Eiusmod Tempor</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Midela Teren</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Pira Neve</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Dirada Pack</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Moton Ideal</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Verdo Park</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Flavor Nivelanda</a></h3>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Features Section --> --}}
 
     <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses">
@@ -291,7 +211,9 @@
               <img src="{{ asset($row->photo) }}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>{{ $row->name }}</h4>
+                  <a href="frontend_registration"><h4 class="btn">{{ $row->name }}</h4></a>
+                    <!-- Button trigger modal -->
+
                   <p class="price">$169</p>
                 </div>
 
@@ -372,7 +294,7 @@
     </section><!-- End Popular Courses Section -->
 
     <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
+    <section id="teachers" class="trainers">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">

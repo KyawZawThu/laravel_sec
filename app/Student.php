@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable =['name', 'email', 'description', 'position', 'est_salary', 'photo'];
+    protected $fillable =[ 'description', 'position', 'est_salary', 'photo', 'user_id'];
 
       public function projects()
   	  {
@@ -23,5 +23,18 @@ class Student extends Model
     public function courses(){
         return $this->belongsToMany('App\Course')
                     ->withTimestamps();
+
+
+
+
+    }
+    // public function User(){
+    //     return $this->belongsToMany('App\User')
+    //                    ->withTimestamps();
+
+    // }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }
