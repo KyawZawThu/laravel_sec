@@ -180,13 +180,9 @@
                   <a href="{{route('mainpage')}}" class="btn btn-primary bk"> Back </a>
                 <form method="" action="" class="getin">
                 @csrf
-<<<<<<< HEAD
-                 <button class="btn btn-success mt-2 chec">Get in Touch</button>
-                
-=======
-                  <a href="{{route('mainpage')}}" class="btn btn-success mt-2 chec">Get in Touch</a>
+                 <button class="btn btn-success mt-2 chec">Get in Touch</button>          
 
->>>>>>> 16e0f57251cdcb1622290097e45b5913599d87ae
+
                </div>
                <div class="paw"></div>
 
