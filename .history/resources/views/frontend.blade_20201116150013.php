@@ -1,13 +1,8 @@
 
-<<<<<<< HEAD
-@extends('master')
-@section('content')
-=======
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -51,7 +46,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto" style="text-color: crimson;"><a href="index.html">Success With Us</a></h1>
+      <h1 class="logo mr-auto" style="text-color: crimson"><a href="index.html">Success With Us</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -78,7 +73,6 @@
     </div>
   </header><!-- End Header -->
 
->>>>>>> 16e0f57251cdcb1622290097e45b5913599d87ae
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
@@ -152,6 +146,49 @@
 
       </div>
     </section><!-- End Counts Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+
+        <section id="trainers" class="trainers">
+            <div class="container" data-aos="fade-up">
+
+              <div class="section-title">
+                <h2>Student</h2>
+                <p>Our Student</p>
+              </div>
+
+
+
+              <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                  @foreach($students as $row)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="member">
+                    <img src="{{ asset( $row->photo ) }}" class="img-fluid" alt="">
+                    <div class="member-content">
+
+                      <h4>{{ $row->user->name}}</h4>
+                      <h4>{{ $row->description }}</h4>
+
+                      <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+
+
+
+              </div>
+
+            </div>
+          </section>
+
+    </section><!-- End Why Us Section -->
 
 
 
@@ -288,7 +325,7 @@
           </div>
           @endforeach
 
- {{--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
               <div class="member-content">
@@ -331,53 +368,99 @@
       </div>
     </section><!-- End Trainers Section -->
 
-       <!-- ======= Student Section ======= -->
-    <section id="students" class="students">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Students</h2>
-          <p>Our Students</p>
-        </div>
-
-
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            @foreach($confirmed as $project)
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="{{ asset( $project->student->photo ) }}" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>{{$project->student->name}}</h4>
-                <span>{{$project->student->email}}</span>
-                <h5>{{$project->url}}</h5>
-                <p>
-                  {{$project->student->description}}
-                </p>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-
-                  @role('company')
-                  <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">Scout</a>
-              {{-- <button class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">
-              Scout
-            </button> --}}
-            @else
-            <a href="#contact" class="btn btn-success">Contact Us to Scout</a>
-            @endrole
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          @endforeach
-          </section><!-- End Trainers Section -->
-
   </main><!-- End #main -->
 
-@endsection
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Mentor</h3>
+            <p>
+              Myanmar, Yangon <br><br>
+              <strong>Phone:</strong> +959 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Laravel</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">PHP</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Success With Us</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{  asset('frontend_asset/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/counterup/counterup.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/aos/aos.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
+
+</body>
+
+</html>
 

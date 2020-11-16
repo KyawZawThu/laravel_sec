@@ -158,11 +158,11 @@
                </div>
             </div>
          </div>
-
+         
             </div>
          </div>
          <div class="student-profile-container">
-
+            
             <div class="student-profle-main-content w-clearfix">
                <a href="#" class="link-block-2 w-inline-block w-clearfix">
                   <div class="student-profile-browse-more">Back to all candidates</div>
@@ -172,7 +172,7 @@
                      <div class="text-block-9">HIRED</div>
                   </a>
 {{--                   <div class="html-cta w-embed">
-                     <a href=""
+                     <a href="" 
                          class="pc-student-round-btn w-inline-block">
                         <div class="text-block-10">Get in touch</div>
                      </a>
@@ -180,18 +180,13 @@
                   <a href="{{route('mainpage')}}" class="btn btn-primary bk"> Back </a>
                 <form method="" action="" class="getin">
                 @csrf
-<<<<<<< HEAD
-                 <button class="btn btn-success mt-2 chec">Get in Touch</button>
-                
-=======
                   <a href="{{route('mainpage')}}" class="btn btn-success mt-2 chec">Get in Touch</a>
-
->>>>>>> 16e0f57251cdcb1622290097e45b5913599d87ae
+                
                </div>
                <div class="paw"></div>
 
                <textarea class="form-control notes" placeholder="Any Request..." style="width: 900px; height: 120px;" required></textarea>
-               </form>
+               </form>                     
                   </div>
                </div>
             </div>
@@ -277,7 +272,7 @@
       <!-- Event Tracking Google Analytics -->
       <script type="text/javascript">
          //GA Event Tracker Script. Licensed under MIT. Free for any use by all. Written by Paul Seal from codeshare.co.uk
-
+         
          // Get the category, action and label from the element and send it to GA. The action is optional, because mostly it will be a click event.
          var trackClickEvent = function () {
            var eventCategory = this.getAttribute("data-event-category");
@@ -286,16 +281,16 @@
            var eventValue = this.getAttribute("data-event-value");
            ga('send', 'event', eventCategory, (eventAction != undefined && eventAction != '' ? eventAction : 'click'), eventLabel, eventValue);
          };
-
+         
          // Find all of the elements on the page which have the class 'ga-event'
          var elementsToTrack = document.getElementsByClassName("ga-event");
-
+         
          // Add an event listener to each of the elements you found
          var elementsToTrackLength = elementsToTrack.length;
          for (var i = 0; i < elementsToTrackLength; i++) {
            elementsToTrack[i].addEventListener('click', trackClickEvent, false);
          }
-
+         
       </script>
       <!-- End Event Tracking Google Analytics -->
       <!-- Profiles Segments -->
@@ -317,7 +312,7 @@
       </script>
       <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
       <script type="text/javascript">
-
+        
          $(document).ready(function(){
               $.ajaxSetup({
                 headers: {
@@ -326,7 +321,7 @@
             });
 
             $('.getin').submit(function(e){
-               // alert("ok");
+               // alert("ok");   
                let notes = $('.notes').val();
                if(notes===""){
                 return true;
@@ -338,13 +333,13 @@
                })
                e.preventDefault();
                }
-
+              
             })
 
             $('.bk').click(function(){
               localStorage.clear();
             })
-
+            
          })
       </script>
         <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
@@ -363,6 +358,6 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
   <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
-  {{-- @include('sweetalert::alert') --}}
+  @include('sweetalert::alert')
    </body>
 </html>

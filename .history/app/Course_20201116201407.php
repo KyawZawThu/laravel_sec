@@ -14,7 +14,7 @@ class Course extends Model
     //                 ->withTimestamps();
     // }
 
-    public function teacher(){
+    public function teachers(){
         return $this->belongsTo('App\Teacher');
     }
 }

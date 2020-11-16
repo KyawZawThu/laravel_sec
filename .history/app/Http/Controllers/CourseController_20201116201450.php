@@ -6,7 +6,6 @@ use App\Course;
 use Illuminate\Http\Request;
 use App\Teacher;
 
-
 class CourseController extends Controller
 {
     /**
@@ -16,7 +15,6 @@ class CourseController extends Controller
      */
     public function index()
     {
-
         $courses = Course::all();
         return view('course.index', compact('courses'));
     }
