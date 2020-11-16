@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -325,7 +326,7 @@
           </div>
           @endforeach
 
-          {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+ {{--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
               <div class="member-content">
@@ -367,6 +368,52 @@
 
       </div>
     </section><!-- End Trainers Section -->
+
+       <!-- ======= Student Section ======= -->
+    <section id="students" class="students">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Students</h2>
+          <p>Our Students</p>
+        </div>
+
+
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            @foreach($confirmed as $project)
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{{ asset( $project->student->photo ) }}" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>{{$project->student->name}}</h4>
+                <span>{{$project->student->email}}</span>
+                <h5>{{$project->url}}</h5>
+                <p>
+                  {{$project->student->description}}
+                </p>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+
+                  @role('company')
+                  <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">Scout</a>
+              {{-- <button class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">
+              Scout
+            </button> --}}
+            @else
+            <a href="#contact" class="btn btn-success">Contact Us to Scout</a>
+            @endrole
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+          </section><!-- End Trainers Section -->
 
   </main><!-- End #main -->
 
@@ -459,6 +506,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
+  <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
 
 </body>
 

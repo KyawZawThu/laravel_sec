@@ -15,8 +15,8 @@ class Student extends Model
 
   	  public function scouts()
   	  {
-  	  	return $this->belongsToMany('App\Scout')
-  	  				->withTimestamps();
+  	  	return $this->belongsToMany('App\Scout','scoutstudents')
+  	  				->withTimestamps();	
   	  }
 
 

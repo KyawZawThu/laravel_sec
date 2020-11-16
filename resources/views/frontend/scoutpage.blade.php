@@ -1,22 +1,23 @@
 <!DOCTYPE html><!-- Last Published: Fri Nov 13 2020 22:23:08 GMT+0000 (Coordinated Universal Time) -->
-<html data-wf-domain="lambdaschool.com" data-wf-page="5f93081a961bb46957522639" data-wf-site="5cd091cfb5499f22bdf72905">
+{{-- <html data-wf-domain="lambdaschool.com" data-wf-page="5f93081a961bb46957522639" data-wf-site="5cd091cfb5499f22bdf72905"> --}}
    <head>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta charset="utf-8"/>
       <title>Success With Us</title>
-      <meta content="&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;" name="description"/>
+      {{-- <meta content="&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;" name="description"/>
       <meta content="Hira Shahid | Lambda Grad" property="og:title"/>
-      <meta content="&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;" property="og:description"/>
-      <meta content="https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg" property="og:image"/>
-      <meta content="Hira Shahid | Lambda Grad" property="twitter:title"/>
+      <meta content="&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;" property="og:description"/> --}}
+      {{-- <meta content="https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg" property="og:image"/> --}}
+     {{--  <meta content="Hira Shahid | Lambda Grad" property="twitter:title"/>
       <meta content="&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;" property="twitter:description"/>
-      <meta content="https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg" property="twitter:image"/>
-      <meta property="og:type" content="website"/>
-      <meta content="summary_large_image" name="twitter:card"/>
+      <meta content="https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg" property="twitter:image"/> --}}
+      {{-- <meta property="og:type" content="website"/>
+      <meta content="summary_large_image" name="twitter:card"/> --}}
       <meta content="width=device-width, initial-scale=1" name="viewport"/>
       <link href="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/css/lambdaschool-com.4a3504213.css" rel="stylesheet" type="text/css"/>
       <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Alegreya:regular,italic,500,500italic,700,700italic,800,800italic,900,900italic","Libre Baskerville:regular,italic,700"]  }});</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]--><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-      <link href="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e3903c669eabe0b4006904f_favicon_lambda_32.png" rel="shortcut icon" type="image/x-icon"/>
-      <link href="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e3903c95db834012d3e2e2b_favicon_lambda_256.png" rel="apple-touch-icon"/>
+      {{-- <link href="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e3903c669eabe0b4006904f_favicon_lambda_32.png" rel="shortcut icon" type="image/x-icon"/>
+      <link href="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/5e3903c95db834012d3e2e2b_favicon_lambda_256.png" rel="apple-touch-icon"/> --}}
       <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-80850900-1"></script><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-80850900-1', {'anonymize_ip': false});</script>
       <style>.w-container {max-width: 1220px;}</style>
       <!-- Optimizely -->
@@ -52,8 +53,56 @@
       </script>
       <!-- End Profiles Segments -->
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('frontend_asset/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('frontend_asset/vendor/aos/aos.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('frontend_asset/css/style.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor - v2.1.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
    </head>
    <body>
+        <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="index.html">Mentor</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-us">Student</a></li>
+
+          <li><a href="#popular-courses">Courses</a></li>
+          <li><a href="#trainers">Trainers</a></li>
+
+
+
+          <li><a href="#footer">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <a href="courses.html" class="get-started-btn">Get Started</a>
+
+    </div>
+  </header><!-- End Header -->
       <div class="page-wrap">
          <div data-collapse="medium" data-animation="over-right" data-duration="400" data-doc-height="1" data-no-scroll="1" role="banner" class="navbar mobile-nav w-nav">
             <div class="navigation-wrap">
@@ -122,64 +171,100 @@
                   <a href="#" class="pc-student-hired w-inline-block w-condition-invisible">
                      <div class="text-block-9">HIRED</div>
                   </a>
-                  <div class="html-cta w-embed">
-                     <a href="mailto:hira-khan@lambdastudents.com?cc=placement@lambdaschool.com&subject=
-                        Let's connect&body=
-                        Hi Hira, %0d%0d
-                        I saw your Lambda School profile and I'm interested in discussing a potential opportunity with you.
-                        %0d%0dWhen are you available?" 
-                        target="_blank" class="pc-student-round-btn w-inline-block">
+{{--                   <div class="html-cta w-embed">
+                     <a href="" 
+                         class="pc-student-round-btn w-inline-block">
                         <div class="text-block-10">Get in touch</div>
                      </a>
-                  </div>
+                  </div> --}}
+                  <a href="{{route('mainpage')}}" class="btn btn-primary bk"> Back </a>
+                <form method="" action="" class="getin">
+                @csrf
+                  <a href="{{route('mainpage')}}" class="btn btn-success mt-2 chec">Get in Touch</a>
+                
                </div>
-               <div class="medium-tiempos bright-red left-aligned student-profile-name">Hira Shahid</div>
-               <h4 class="student-profile-track">Data Science</h4>
-               <ul role="list" class="student-profile-external-links w-list-unstyled">
-                  <li class="pc-student-linkedin"><a href="https://www.linkedin.com/in/hira-shahid-991b1583/" target="_blank" class="pc-student-linkedin-link w-inline-block"></a></li>
-                  <li class="pc-student-github"><a href="https://github.com/hira63s" target="_blank" class="pc-student-github-link w-inline-block"></a></li>
-                  <li class="pc-student-portfolio"><a href="https://hira63s.github.io/" target="_blank" class="pc-student-portfolio-link w-inline-block"></a></li>
-               </ul>
-               <div class="html-cta-mobile w-embed">
-                  <a href="mailto:hira-khan@lambdastudents.com?cc=placement@lambdaschool.com&subject=
-                     Let's connect&body=
-                     Hi Hira, %0d%0d
-                     I saw your Lambda School profile and I'm interested in discussing a potential opportunity with you.
-                     %0d%0dWhen are you available?" 
-                     target="_blank" class="pc-student-round-btn-mobile">
-                     <div class="text-block-10">Get in touch</div>
-                  </a>
-               </div>
-               <div style="background-image:url(&quot;https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg&quot;)" class="student-profile-primary-photo"></div>
-               <p class="student-profile-text-body">&quot;Coming from a background in Neuroscience and Economics with a focus in Behavioral Finance, data science was the perfect field for me to pivot into. I have had the opportunity to work on a whole range of projects from analyzing consumer expenditure, to analyzing investment risks. My focus has evolved to deep learning and specifically computer vision, and I&#x27;ve been working on personal projects which use state-of the-art algorithms to make real-time inference for object detection and segmentation that will eventually hep make autonomous cars a reality.&quot;</p>
-               <div class="student-profiles-section-mobile">
-                  <div class="pc-student-mobile-headline">Education</div>
-                  <p class="student-profile-mobile-text">B.S. Neuroscience &amp; Economics</p>
-               </div>
-               <div class="student-profiles-section-mobile">
-                  <div class="pc-student-mobile-headline">Industry experience</div>
-                  <p class="student-profile-mobile-text">Retail, Finance</p>
-               </div>
-               <div class="student-profiles-section-mobile">
-                  <div class="pc-student-mobile-headline">Roles I&#x27;m looking for</div>
-                  <p class="student-profile-mobile-text">Data Analyst, Data Engineer, Machine Learning Scientist</p>
-               </div>
-               <div class="student-profiles-tech-skills">
-                  <div class="pc-student-technical-skills">Technical skills</div>
-                  <div class="pc-student-tech-skills-tags">
-                     <div class="pc-student-tech-skill-tag">Python</div>
-                     <div class="pc-student-tech-skill-tag">SQL</div>
-                     <div class="pc-student-tech-skill-tag">Flask</div>
-                     <div class="pc-student-tech-skill-tag">TensorFlow</div>
-                     <div class="pc-student-tech-skill-tag">Predictive modeling</div>
-                     <div class="pc-student-tech-skill-tag">Data visualization</div>
-                     <div class="pc-student-tech-skill-tag">R</div>
-                     <div class="pc-student-tech-skill-tag">PyTorch</div>
+               <div class="paw"></div>
+
+               <textarea class="form-control notes" placeholder="Any Request..." style="width: 900px; height: 120px;" required></textarea>
+               </form>                     
                   </div>
                </div>
             </div>
          </div>
+
       </div>
+      <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Mentor</h3>
+            <p>
+              Myanmar, Yangon <br><br>
+              <strong>Phone:</strong> +959 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Laravel</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">PHP</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Success With Us</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
       <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5cd091cfb5499f22bdf72905" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://assets-global.website-files.com/5cd091cfb5499f22bdf72905/js/lambdaschool-com.d9d3baaf0.js" type="text/javascript"></script><!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]--><!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QF5ZVC"
          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -225,6 +310,54 @@
          	})
          })
       </script>
-      <!-- End Profiles Segments -->
+      <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
+      <script type="text/javascript">
+        
+         $(document).ready(function(){
+              $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.getin').submit(function(e){
+               // alert("ok");   
+               let notes = $('.notes').val();
+               if(notes===""){
+                return true;
+               }else{
+                 let order = localStorage.getItem('items');
+               $.post("{{route('scout.store')}}",{order:order,notes:notes},function (response) {
+                  console.log(response);
+                  localStorage.clear();
+               })
+               e.preventDefault();
+               }
+              
+            })
+
+            $('.bk').click(function(){
+              localStorage.clear();
+            })
+            
+         })
+      </script>
+        <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{  asset('frontend_asset/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/counterup/counterup.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+  <script src="{{  asset('frontend_asset/vendor/aos/aos.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
+  <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
+  @include('sweetalert::alert')
    </body>
 </html>

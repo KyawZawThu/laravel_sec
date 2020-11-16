@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
+
 //     return view('welcome');
 // });
 
@@ -22,12 +24,16 @@ Route::get('backend', function(){
 });
 
 Route::get('frontend2', function(){
+
     return view('frontend_student_login');
 });
 
 
 Route::get('frontend','FrontendController@frontend')->name('mainpage');
 // Route::get('frontend_student_login','FrontendController@frontend')->name('mainpage');
+
+Route::get('detailsc','FrontendController@detailsc')->name('detailsc');
+
 Route::get('scout','FrontendController@scout')->name('scoutpage');
 Route::get('frontend_registration', 'FrontendController@frontend_registration')->name('student_registration');
 Route::get('frontend_teacher_register', 'FrontendController@frontend_teacher_register')->name('teacher_register');
@@ -38,13 +44,19 @@ Route::resource('student', 'StudentController');
 Route::resource('course', 'CourseController');
 Route::resource('project', 'ProjectController');
 Route::post('confirm/{id}','ProjectController@confirm')->name('project.confirm');
+Route::post('confirmsc/{id}','ScoutController@confirmsc')->name('scout.confirmsc');
 Route::resource('company', 'CompanyController');
+
+Route::resource('scout', 'ScoutController');
+
+// Auth::routes();
+
 Route::resource('user', 'UserController');
 Auth::routes(['register'=>false]);
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

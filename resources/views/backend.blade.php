@@ -115,6 +115,16 @@
             </a>
 
           </li>
+          <li class="nav-item ">
+            <a href="{{ route('scout.index') }}" class="nav-link {{ Request::is('scout*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Scout
+                {{-- <i class="fas fa-angle-left right"></i> --}}
+              </p>
+            </a>
+
+          </li>
 
         </ul>
       </nav>
