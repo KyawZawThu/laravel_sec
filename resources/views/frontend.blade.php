@@ -177,7 +177,7 @@
 
       </div>
     </section><!-- End Popular Courses Section -->
-
+{{-- 
     <!-- ======= Trainers Section ======= -->
     <section id="teachers" class="trainers">
       <div class="container" data-aos="fade-up">
@@ -185,11 +185,11 @@
         <div class="section-title">
           <h2>Trainers</h2>
           <p>Our Professional Trainers</p>
-        </div>
+        </div> --}}
 
 
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+{{--         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             @foreach($teachers as $row)
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
@@ -209,7 +209,7 @@
               </div>
             </div>
           </div>
-          @endforeach
+          @endforeach --}}
 
  {{--          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
@@ -283,14 +283,12 @@
                   <a href=""><i class="icofont-instagram"></i></a>
                   <a href=""><i class="icofont-linkedin"></i></a>
 
-                  @role('company')
-                  <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">Scout</a>
+                  
+                  <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">Detail</a>
               {{-- <button class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">
               Scout
             </button> --}}
-            @else
-            <a href="#contact" class="btn btn-success">Contact Us to Scout</a>
-            @endrole
+            
 
 
                 </div>
