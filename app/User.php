@@ -38,7 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function student(){
-    //     return $this->belongsTo('App\Student');
-    // }
+    public function student(){
+        return $this->hasOne('App\Student');
+    }
 }

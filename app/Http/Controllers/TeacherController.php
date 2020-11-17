@@ -76,7 +76,7 @@ class TeacherController extends Controller
         $teacher->save();
 
         // redirect
-        $user->assignRole('admin');
+        $user->assignRole('teacher');
         return redirect()->route('teacher.index');
     }
 

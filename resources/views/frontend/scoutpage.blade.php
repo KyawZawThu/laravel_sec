@@ -75,6 +75,11 @@
   ======================================================== -->
    </head>
    <body>
+    @if(session('success_message'))
+    <div class="alert alert-success">
+      {{session('success_message')}}
+    </div>
+    @endif
         <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
@@ -328,7 +333,7 @@
                 return true;
                }else{
                  let order = localStorage.getItem('items');
-               $.post("{{route('scout.store')}}",{order:order,notes:notes},function (response) {
+               $.post("{{route('fescout.store')}}",{order:order,notes:notes},function (response) {
                   console.log(response);
                   localStorage.clear();
                })
@@ -359,6 +364,6 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
   <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
-  {{-- @include('sweetalert::alert') --}}
+  @include('sweetalert::alert')
    </body>
 </html>

@@ -53,7 +53,7 @@ $(document).ready(function(){
                      <div class="text-block-10">Get in touch</div>
                   </a>
                </div>
-               <div style="background-image:url(&quot;https://assets-global.website-files.com/5cdadb92bbedfa7aa28f9b50/5ecfcd742da69e0184de8976_IMG-20200128-WA0005%20-%20Hera%20Shahid.jpg&quot;)" class="student-profile-primary-photo"></div>
+               <div style="" class="student-profile-primary-photo"><img src="${v.photo}"></div>
                <p class="student-profile-text-body">&quot;${v.description}&quot;</p>
                <div class="student-profiles-section-mobile">
                   <div class="pc-student-mobile-headline">Education</div>

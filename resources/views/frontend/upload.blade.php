@@ -13,11 +13,11 @@
       {{-- <link rel="apple-touch-icon" href="https://s.pinimg.com/webapp/style/images/logo_trans_144x144-5e37c0c6.png"/>
       <link rel="mask-icon" sizes="any" href="https://s.pinimg.com/webapp/style/images/pinterest_badge-d9ac575a.svg" color="#e60023"/>
       <link rel="icon" href="https://s.pinimg.com/webapp/style/images/favicon-54a5b2af.png"/> --}}
-      <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gpdjojdkbbmdfjfahjcgigfpmkopogic"/>
+      {{-- <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gpdjojdkbbmdfjfahjcgigfpmkopogic"/> --}}
       <style id="recaptcha">.grecaptcha-badge { visibility: hidden; }</style>
       <script nonce="2e1110691600b55ebaaa3bc3d27785d5">(function(){function g(a,b){d||(d=b,c=a,h=new Date,k(removeEventListener),l())}function l(){0<=c&&c<h-m&&(e.forEach(function(a){a(c,d)}),e=[])}function n(a,b){function c(){g(a,b);e()}function d(){e()}function e(){removeEventListener("pointerup",c,f);removeEventListener("pointercancel",d,f)}addEventListener("pointerup",c,f);addEventListener("pointercancel",d,f)}function p(a){if(a.cancelable){var b=(1E12<a.timeStamp?new Date:performance.now())-a.timeStamp;"pointerdown"==a.type?n(b,a):g(b,a)}}function k(a){["click", "mousedown","keydown","touchstart","pointerdown"].forEach(function(b){a(b,p,f)})}var d,c,h,e=[],f={passive:!0,capture:!0},m=new Date;k(addEventListener);self.perfMetrics=self.perfMetrics||{};self.perfMetrics.onFirstInputDelay=function(a){e.push(a);l()}})();</script>
       {{-- <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Pinterest"/> --}}
-      <link rel="manifest" href="/manifest.json/"/>
+      {{-- <link rel="manifest" href="/manifest.json/"/> --}}
       {{-- <meta name="application-name" content="Pinterest"/>
       <meta name="msapplication-TileColor" content="#ffffff"/>
       <meta name="msapplication-TileImage" content="https://s.pinimg.com/webapp/style/images/logo_trans_144x144-5e37c0c6.png"/>
@@ -94,6 +94,7 @@
                                                    <path d="M0 12c0 5.123 3.211 9.497 7.73 11.218-.11-.937-.227-2.482.025-3.566.217-.932 1.401-5.938 1.401-5.938s-.357-.715-.357-1.774c0-1.66.962-2.9 2.161-2.9 1.02 0 1.512.765 1.512 1.682 0 1.025-.653 2.557-.99 3.978-.281 1.189.597 2.159 1.769 2.159 2.123 0 3.756-2.239 3.756-5.471 0-2.861-2.056-4.86-4.991-4.86-3.398 0-5.393 2.549-5.393 5.184 0 1.027.395 2.127.889 2.726a.36.36 0 0 1 .083.343c-.091.378-.293 1.189-.332 1.355-.053.218-.173.265-.4.159-1.492-.694-2.424-2.875-2.424-4.627 0-3.769 2.737-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.899 0 4.117-2.595 7.431-6.199 7.431-1.211 0-2.348-.63-2.738-1.373 0 0-.599 2.282-.744 2.84-.282 1.084-1.064 2.456-1.549 3.235C9.584 23.815 10.77 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12"></path>
                                                 </svg> --}}
                                              </div>
+                                             
                                              <div data-test-id="businessAccountCreateTitle" class="VxL zI7 iyn Hsu">
                                                 <h2 class="lH1 dyH iFc ut5 pBj tg7 IZT">Upload Your Project</h2>
                                              </div>
@@ -102,29 +103,39 @@
                                                    You must upload the project within deadline <!-- -->To Get a Job<!-- --> 
                                                 </div>
                                              </div>
-                                             <form method="POST" novalidate="">
+                                             <form method="POST" novalidate="" action="{{route('upload.store')}}">
+                                                @csrf
                                                 <div class="zI7 iyn Hsu">
                                                    <div class="C9q XiG zI7 iyn Hsu" style="z-index:3">
-                                                      <fieldset style="position:relative"><span><input type="email" aria-invalid="false" autoComplete="on" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4" id="email" name="email" placeholder="Project Name" value=""/></span></fieldset>
+                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="on" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 @error('name') is-invalid @enderror" id="email" name="name" placeholder="Project Name" value=""/>@error('name') <span class="invalid-feedback" role="alert"></span> <strong>{{$message}}</strong>@enderror</span></fieldset>
                                                    </div>
                                                    
                                                    <div class="C9q XiG zI7 iyn Hsu" style="z-index:2">
-                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="off" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4" id="age" name="age" placeholder="URL..." value=""/></span></fieldset>
+                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="off" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 @error('url') is-invalid @enderror" id="url" name="url" placeholder="URL..." value=""/>@error('url') <span class="invalid-feedback" role="alert"></span> <strong>{{$message}}</strong>@enderror</span></fieldset>
                                                    </div>
 
                                                    <div class="C9q XiG zI7 iyn Hsu" style="z-index:2">
-                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="off" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4" id="age" name="age" placeholder="Description" value=""/></span></fieldset>
+                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="off" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 @error('description') is-invalid @enderror" id="description" name="description" placeholder="Description" value=""/>@error('description') <span class="invalid-feedback" role="alert"></span> <strong>{{$message}}</strong>@enderror</span></fieldset>
                                                    </div>
+
+
+{{--                                                    <div class="C9q XiG zI7 iyn Hsu" style="z-index:2">
+                                                      <fieldset style="position:relative"><span><input type="text" aria-invalid="false" autoComplete="off" class="wyq Hsu tBJ dyH iFc yTZ L4E unP iyn Pve pBj qJc aKM LJB xD4 @error('student_id') is-invalid @enderror" id="student_id" name="student_id" placeholder="Enter Your ID" value=""/>@error('student_id') <span class="invalid-feedback" role="alert"></span> <strong>{{$message}}</strong>@enderror</span></fieldset>
+                                                   </div> --}}
 
                                                    <div class="C9q zI7 iyn Hsu">
                                                       <button class="RCK Hsu USg adn CCY czT Vxj aZc Zr3 hA- Il7 Jrn hNT BG7 gn8 L4E kVc iyn" tabindex="0" type="submit">
                                                          <div class="tBJ dyH iFc yTZ erh tg7 mWe">Upload Project</div>
                                                       </button>
                                                    </div>
+
+                                                
                        
                                                    {{-- <div class="C9q zI7 iyn Hsu">
                                                       <div class="tBJ dyH iFc _yT pBj tg7 swG">Creating an account means you’re okay with Pinterest’s <span data-test-id="business-tos"><a class="Wk9 xQ4 CCY czT C3p KhY eEj uCz iyn" href="https://www.pinterest.com/_/_/business/tos/" rel="noopener noreferrer" target="_blank">Business Terms of Service</a></span> and <span data-test-id="privacy"><a class="Wk9 xQ4 CCY czT C3p KhY eEj uCz iyn" href="https://www.pinterest.com/_/_/policy/privacy-policy/" rel="noopener noreferrer" target="_blank">Privacy Policy</a></span>.</div>
                                                    </div> --}}
+
+                                          
                                                 </div>
                                              </form>
 

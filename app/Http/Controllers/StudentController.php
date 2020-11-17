@@ -43,7 +43,6 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             "name" => "required|min:5",
             "email" => "required",
@@ -70,11 +69,11 @@ class StudentController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $corsestudent = new CorseStudent;
-        $corsestudent->save();
+        // $corsestudent = new CorseStudent;
+        // $corsestudent->save();
 
         $student = new Student;
-
+        $student->name = $request->name;
         $student->description = $request->description;
         $student->position = $request ->position;
         $student->est_salary = $request ->est_salary;

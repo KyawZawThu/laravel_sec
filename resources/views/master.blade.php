@@ -60,15 +60,39 @@
           <li><a href="#teachers">Trainers</a></li>
           <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
           <li><a href="{{route( 'company_register' )}}">Company</a></li>
+          {{-- <li><a href="#footer">Contact</a></li> --}}
+          <li><a href="{{route('login')}}">Login</a></li>          
 
+      
+       @auth
+          <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }}
+              </a>
 
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('mainpage') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
 
-          <li><a href="#footer">Contact</a></li>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+          @else
+          <li><a href="{{route( 'student_registration' )}}">Sign Up</a></li>
+          @endauth
+
+      @role('student')
+      <li><a href="{{route('uploadpj')}}" class="get-started-btn">Upload Project</a></li>
+      @endrole
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="courses.html" class="get-started-btn">Get Started</a>
 
     </div>
   </header><!-- End Header -->

@@ -16,7 +16,7 @@ class FrontendController extends Controller
         $projects=Project::all();
         $students = Student::all();
     	$confirmed=Project::where('status',1)->get();
-    	return view('frontend', compact('projects','confirmed', 'courses', 'teachers','students'));
+    	return view('/frontend', compact('projects','confirmed', 'courses', 'teachers','students'));
     }
 
     public function detailsc($value='')

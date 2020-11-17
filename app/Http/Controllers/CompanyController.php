@@ -66,7 +66,7 @@ class CompanyController extends Controller
         // store
 
         $company=new Company;
-
+        $company->name = $request->name;
         $company->address=$request->address;
         $company->contact=$request->contact;
         $company->description= $request->description;

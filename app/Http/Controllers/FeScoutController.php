@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Scout;
 use Illuminate\Http\Request;
-
-
-class ScoutController extends Controller
+use Auth;
+class FeScoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class ScoutController extends Controller
      */
     public function index()
     {
-        
-        $pending_scouts=Scout::where('status',0)->get();
-        $confirmed_scouts=Scout::where('status',1)->get();
-        return view('scout.index', compact('pending_scouts','confirmed_scouts'));
+        //
     }
 
     /**
@@ -39,7 +35,37 @@ class ScoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        // validation
+
+        // data store
+        $myorder = json_decode($request->order);
+        $notes = $request->notes;
+        $orderdate = date('Y-m-d');
+        
+        $order = new Scout;
+        $order->scoutdate = $orderdate;
+        $order->notes = $notes;
+        $order->user_id = Auth::id(); // current logined user_id
+        $order->save();
+        /*  [
+                {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
+                {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
+            ]
+        */
+        foreach ($myorder as $row) { 
+            $order->students()->attach($row->id);
+        }
+
+        return "Successful Your Order";
+
+        // ajax response
+        // return response()
+        //     ->json(['msg' => 'Successful You Order!']);
+
+        // form response
+        return redirect('mainpage')->with('success_message','Thanks, we will contact soon');
     }
 
     /**
@@ -50,7 +76,7 @@ class ScoutController extends Controller
      */
     public function show(Scout $scout)
     {
-        return view('scout.show', compact('scout'));
+        //
     }
 
     /**
@@ -85,13 +111,5 @@ class ScoutController extends Controller
     public function destroy(Scout $scout)
     {
         //
-    }
-
-        public function confirmsc($id)
-    {
-        $scout=Scout::find($id);
-        $scout->status=1;
-        $scout->save();
-        return back();
     }
 }

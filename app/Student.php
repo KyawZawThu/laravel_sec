@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable =[ 'description', 'position', 'est_salary', 'photo', 'user_id'];
+    protected $fillable =['name','description', 'position', 'est_salary', 'photo', 'user_id'];
 
       public function projects()
   	  {

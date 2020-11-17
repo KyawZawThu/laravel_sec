@@ -6,7 +6,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use Auth;
 
-class ProjectController extends Controller
+class UploadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $pending_projects=Project::where('status',0)->get();
-        $confirmed_projects=Project::where('status',1)->get();
-        return view('project.index', compact('pending_projects','confirmed_projects'));
+        //
     }
 
     /**
@@ -38,7 +36,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name"=> "required|min:5",
+            "url"=> "required",
+            "description"=> "required",            
+        ]);
+        $project = new Project;
+        $project->name = $request->name;
+        $project->url = $request->url;
+        $project->description = $request->description;
+        $user=Auth::user();
+        $student=$user->student;
+        $student_id=$student->id;
+        $project->student_id = $student_id;
+        $project->save();
+        return redirect()->route('mainpage');
     }
 
     /**
@@ -49,7 +61,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('project.show', compact('project'));
+        //
     }
 
     /**
@@ -84,13 +96,5 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
-    }
-
-    public function confirm($id)
-    {
-        $project=Project::find($id);
-        $project->status=1;
-        $project->save();
-        return back();
     }
 }
