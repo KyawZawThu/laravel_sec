@@ -21,19 +21,22 @@
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
          {{--  @foreach($projects as $project)
           @if($project->status==1) --}}
-            @foreach($students as $student)
+
+          @foreach($confirmed as $confirm)
+         
+           
           
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="{{ asset( $student->photo ) }}" class="img-fluid" alt="">
+              <img src="{{ asset( $confirm->student->photo ) }}" class="img-fluid" alt="">
               <div class="member-content">
-                <h4>{{$student->name}}</h4>
-                <span>{{$student->email}}</span>
-                @foreach($student->projects as $studentprj)
-                <h5>{{$studentprj->url}}</h5>
-                @endforeach
+                <h4>{{$confirm->name}}</h4>
+                <span>{{$confirm->student->email}}</span>
+                
+                <h5>{{$confirm->url}}</h5>
+          
                 <p>
-                  {{$student->description}}
+                  {{$confirm->student->description}}
                 </p>
                 <div class="social">
                   <a href=""><i class="icofont-twitter"></i></a>
@@ -43,7 +46,7 @@
 
                   @role('company')
                   
-              <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$student->id}}" data-name="{{$student->name}}" data-photo="{{$student->photo}}" data-email="{{$student->email}}" data-description="{{$student->description}}">
+              <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$confirm->student->id}}" data-name="{{$confirm->student->name}}" data-photo="{{$confirm->student->photo}}" data-email="{{$confirm->student->email}}" data-description="{{$confirm->student->description}}">
               Scout
             </a>
             @else
@@ -57,10 +60,10 @@
               </div>
             </div>
           </div>
-{{--           @endforeach
+          @endforeach
         
-        @endif --}}
+          {{-- @endif --}}
 
-      @endforeach
+     
           </section><!-- End Trainers Section -->
 @endsection

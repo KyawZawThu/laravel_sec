@@ -37,7 +37,12 @@ Route::get('detailsc','FrontendController@detailsc')->name('detailsc');
 Route::middleware('role:student')->group(function () {
 Route::get('uploadpj','FrontendController@uploadpj')->name('uploadpj');
 });
+
+Route::get('mylearing','FrontendController@mylearing')->name('mylearing');
+
+
 Route::get('scout','FrontendController@scout')->name('scoutpage');
+Route::get('code','FrontendController@code')->name('code');
 Route::get('frontend_registration', 'FrontendController@frontend_registration')->name('student_registration');
 Route::get('frontend_teacher_register', 'FrontendController@frontend_teacher_register')->name('teacher_register');
 Route::get('frontend_company_register', 'FrontendController@frontend_company_register')->name('company_register');
@@ -63,5 +68,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('detailc','FrontendController@detailc')->name('detailc');
 Route::resource('upload', 'UploadController');
 Route::resource('fescout', 'FeScoutController');
+Route::resource('cd', 'CdController');
 // Route::resource('fecourse', 'FeCourseController');
 Route::resource('fstu', 'FstuController');

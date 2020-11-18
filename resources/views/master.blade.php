@@ -57,7 +57,7 @@
           <li><a href="{{route('detailc')}}">Student</a></li>
 
           <li><a href="#popular-courses">Courses</a></li>
-          <li><a href="#teachers">Trainers</a></li>
+          {{-- <li><a href="#teachers">Trainers</a></li> --}}
           <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
           <li><a href="{{route( 'company_register' )}}">Company</a></li>
           {{-- <li><a href="#footer">Contact</a></li> --}}
@@ -77,6 +77,7 @@
                       {{ __('Logout') }}
                   </a>
 
+                  
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                   </form>
@@ -191,6 +192,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend_asset/js/main.js')}}"></script>
   <script src="{{ asset('frontend_asset/js/kzt.js')}}"></script>
+  <script src="{{ asset('frontend_asset/js/kzt2.js')}}"></script>
 
 </body>
 

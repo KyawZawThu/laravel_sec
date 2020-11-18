@@ -1,26 +1,24 @@
-$(document).ready(function(){
+$("document").ready(function(){
 	showdata();
-	$('.checkout').click(function(){
-		// alert("ok");	
+	$(".code").click(function(){
+		// alert("ok");
 		var id=$(this).data("id");
 		var name=$(this).data("name");
-		var url=$(this).data("url");
 		var photo=$(this).data("photo");
-		var email=$(this).data("email");
+		var teacher=$(this).data("teacher");
 		var description=$(this).data("description");
 
-		var item={
+		var pls={
 			id:id,
 			name:name,
-			url:url
 			photo:photo,
-			email:email,
+			teacher:teacher,
 			description:description,
 		}
 
-		// console.log(student);
+		// console.log(pls);
 
-		var itemlist=localStorage.getItem("items");
+		var itemlist=localStorage.getItem("item1");
 		var itemArray;
 		if (itemlist==null){
 			itemArray=[];
@@ -28,34 +26,30 @@ $(document).ready(function(){
 			itemArray=JSON.parse(itemlist);
 		}
 
-		itemArray.push(item);	
+		itemArray.push(pls);	
 		var itemstring=JSON.stringify(itemArray);
-		localStorage.setItem('items', itemstring);
+		localStorage.setItem('item1', itemstring);
 	})
 
-
-	function showdata(){
-		var itemlist=localStorage.getItem("items");
+		function showdata(){
+		var itemlist=localStorage.getItem("item1");
 		console.log(itemlist);
 		var itemArray=JSON.parse(itemlist);
 			// console.log(itemArray);
 			var html="";
 			$.each(itemArray,function(i,v){
 			html+=`<div class="medium-tiempos bright-red left-aligned student-profile-name">${v.name}</div>
-			<h4 class="student-profile-track">Web Development</h4>
+			<h4 class="student-profile-track"></h4>
+
                
-               <ul role="list" class="student-profile-external-links w-list-unstyled">
-                  <li class="pc-student-linkedin"><a href="https://www.linkedin.com/in/hira-shahid-991b1583/" target="_blank" class="pc-student-linkedin-link w-inline-block"></a></li>
-                  <li class="pc-student-github"><a href="https://github.com/hira63s" target="_blank" class="pc-student-github-link w-inline-block"></a></li>
-                  <li class="pc-student-portfolio"><a href="https://hira63s.github.io/" target="_blank" class="pc-student-portfolio-link w-inline-block"></a></li>
-               </ul>
                <div class="html-cta-mobile w-embed">
                   <a href="" 
                      target="_blank" class="pc-student-round-btn-mobile">
                      <div class="text-block-10">Get in touch</div>
                   </a>
                </div>
-               <div style="" class="student-profile-primary-photo"><img src="${v.photo}"></div>
+               <div style="" class=""><img src="${v.photo}"></div>
+
                <p class="student-profile-text-body">&quot;${v.description}&quot;</p>
                <div class="student-profiles-section-mobile">
                   <div class="pc-student-mobile-headline">Education</div>
@@ -70,19 +64,11 @@ $(document).ready(function(){
                   <p class="student-profile-mobile-text">Data Analyst, Data Engineer, Machine Learning Scientist</p>
                </div>
                <div class="student-profiles-tech-skills">
-                  <div class="pc-student-technical-skills">Technical skills</div>
+                  
                   <div class="pc-student-tech-skills-tags">
-                     <div class="pc-student-tech-skill-tag">Python</div>
-                     <div class="pc-student-tech-skill-tag">SQL</div>
-                     <div class="pc-student-tech-skill-tag">Flask</div>
-                     <div class="pc-student-tech-skill-tag">TensorFlow</div>
-                     <div class="pc-student-tech-skill-tag">Predictive modeling</div>
-                     <div class="pc-student-tech-skill-tag">Data visualization</div>
-                     <div class="pc-student-tech-skill-tag">R</div>
-                     <div class="pc-student-tech-skill-tag">PyTorch</div>` 
+                     ` 
 		})
-		$('.paw').html(html);                         	
+		$('.suc').html(html);                         	
 	}
-	
 	
 })

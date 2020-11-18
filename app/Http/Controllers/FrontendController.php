@@ -7,6 +7,7 @@ use App\Project;
 use App\Course;
 use App\Teacher;
 use App\Student;
+use Auth;
 class FrontendController extends Controller
 {
     public function frontend($value='')
@@ -15,7 +16,8 @@ class FrontendController extends Controller
         $courses = Course::all();
         $projects=Project::all();
         $students = Student::all();
-    	$confirmed=Project::where('status',1)->get();
+    	$confirmed=Project::where('status',1)->with('student')->get();
+      // dd($confirmed);
     	return view('/frontend', compact('projects','confirmed', 'courses', 'teachers','students'));
     }
 
@@ -23,6 +25,12 @@ class FrontendController extends Controller
   {
     return view('frontend.scoutpage');
   }
+
+    public function code($value='')
+  {
+    return view('frontend.code');
+  }
+
 
   public function frontend_registration($value=''){
       return view('frontend.frontend_registration');
@@ -44,8 +52,16 @@ public function frontend_company_register($value=''){
   public function detailc($value='')
   {
     $students = Student::all();
-    return view('frontend.detailc',compact('students'));
+    $confirmed=Project::where('status',1)->with('student')->get();
+    return view('frontend.detailc',compact('students','confirmed'));
   }
 
+  public function mylearing($value='')
+  {
+    $students = Student::all();
+    $user=Auth::user();
+    $student=$user->student;    
+    return view('frontend.mylearing',compact('students'));
+  }
 
 }

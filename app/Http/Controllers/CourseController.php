@@ -70,14 +70,7 @@ class CourseController extends Controller
         $course->save();
 
 
-        // $course = Course::find($id);  
-        // $user=Auth::user();
-        // $student=$user->student;
-        // $student_id=$student->id;
-
-        // $course->students()->attach($student_id);
-        // $project->student_id = $student_id;
-
+   
         return redirect()->route('course.index');
     }
 

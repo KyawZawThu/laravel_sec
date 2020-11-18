@@ -96,11 +96,10 @@
               <img src="{{ asset($row->photo) }}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <form action="post" method="{{'fecourse.store'}}">
-                    @csrf
-                  <a href="{{-- {{ $row->url }} --}}" target="_blank"><h4 class="btn">{{ $row->name }}</h4></a>
+                  
+                  <a href="{{route('code')}}"  class="code" data-id="{{$row->id}}" data-name="{{$row->name}}" data-url="{{$row->url}}" data-photo="{{$row->photo}}" data-description="{{$row->description}}" data-teacher="{{$row->teacher_id}}"><h4 class="btn">{{ $row->name }}</h4></a>
                     <!-- Button trigger modal -->
-                    </form>
+                  
                   {{-- <p class="price">$169</p> --}}
                 </div>
 
