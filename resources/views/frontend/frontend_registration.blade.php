@@ -138,7 +138,7 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="position" class="col-md-4 col-form-label text-md-right">Position</label>
 
                                     <div class="col-md-6">
@@ -154,7 +154,7 @@
                                         <input id="est_salary" type="text" class="form-control " name="est_salary">
 
 
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-md-4 col-form-label text-md-right">Profile Picture</label>

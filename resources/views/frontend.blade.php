@@ -6,7 +6,7 @@
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Learning Today,<br>Leading Tomorrow</h1>
-      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+      <h2>We are team of talanted designers making students with success</h2>
       <a href="courses.html" class="btn-get-started">Get Started</a>
     </div>
   </section><!-- End Hero -->
@@ -96,9 +96,11 @@
               <img src="{{ asset($row->photo) }}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <a href="{{ $row->url }}" target="_blank"><h4 class="btn">{{ $row->name }}</h4></a>
+                  <form action="post" method="{{'fecourse.store'}}">
+                    @csrf
+                  <a href="{{-- {{ $row->url }} --}}" target="_blank"><h4 class="btn">{{ $row->name }}</h4></a>
                     <!-- Button trigger modal -->
-
+                    </form>
                   {{-- <p class="price">$169</p> --}}
                 </div>
 

@@ -42,7 +42,7 @@ Route::get('frontend_registration', 'FrontendController@frontend_registration')-
 Route::get('frontend_teacher_register', 'FrontendController@frontend_teacher_register')->name('teacher_register');
 Route::get('frontend_company_register', 'FrontendController@frontend_company_register')->name('company_register');
 
-Route::middleware('role:admin')->group(function () {
+// Route::middleware('role:admin')->group(function () {
 Route::resource('teacher', 'TeacherController');
 Route::resource('student', 'StudentController');
 Route::resource('course', 'CourseController');
@@ -51,7 +51,7 @@ Route::post('confirm/{id}','ProjectController@confirm')->name('project.confirm')
 Route::post('confirmsc/{id}','ScoutController@confirmsc')->name('scout.confirmsc');
 Route::resource('company', 'CompanyController');
 Route::resource('scout', 'ScoutController');
-});
+// });
 
 // Auth::routes();
 
@@ -64,3 +64,4 @@ Route::get('detailc','FrontendController@detailc')->name('detailc');
 Route::resource('upload', 'UploadController');
 Route::resource('fescout', 'FeScoutController');
 // Route::resource('fecourse', 'FeCourseController');
+Route::resource('fstu', 'FstuController');

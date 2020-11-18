@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use Auth;
+use App\Student;
 use Illuminate\Http\Request;
 
-class FeCourseController extends Controller
+class FstuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class FeCourseController extends Controller
      */
     public function index()
     {
-        //
+         return view('frontend.showstu');
     }
 
     /**
@@ -36,39 +35,27 @@ class FeCourseController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        $course = Course::find($id);
-        
-        $user=Auth::user();
-        $student=$user->student;
-        $student_id=$student->id;
-
-
-        $course->students()->attach($course);
-        // $project->student_id = $student_id;
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Course  $course
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(Student $student)
     {
-        
-        
-         return view('frontend.detailc', compact('course'));
+        return view('frontend.showstu', compact('student'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Course  $course
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit(Student $student)
     {
         //
     }
@@ -77,10 +64,10 @@ class FeCourseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Course  $course
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, Student $student)
     {
         //
     }
@@ -88,10 +75,10 @@ class FeCourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Course  $course
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(Student $student)
     {
         //
     }
