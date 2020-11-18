@@ -72,6 +72,7 @@
       <link rel="alternate" href="https://www.pinterest.com/business/create/" hrefLang="en"/> --}}
    </head>
    <body>
+
       <div id="__PWS_ROOT__" data-reactcontainer="true">
          <div class="zI7 iyn Hsu">
             <div style="margin-top:0">
@@ -154,7 +155,5 @@
          </div>
          <div style="bottom:14px;left:50%;margin-left:-183px;position:fixed;z-index:1500"></div>
       </div>
-
-   </body>
+</body>
 </html>
-

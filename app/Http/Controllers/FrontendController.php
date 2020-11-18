@@ -41,5 +41,11 @@ public function frontend_company_register($value=''){
     return view('frontend.upload');
   }
 
+  public function detailc($value='')
+  {
+    $students = Student::all();
+    return view('frontend.detailc',compact('students'));
+  }
+
 
 }

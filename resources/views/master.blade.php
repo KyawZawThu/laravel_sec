@@ -46,7 +46,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Mentor</a></h1>
+      <h1 class="logo mr-auto"><a href="{{route('mainpage')}}">Mentor</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -54,14 +54,14 @@
         <ul>
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#why-us">Student</a></li>
+          <li><a href="{{route('detailc')}}">Student</a></li>
 
           <li><a href="#popular-courses">Courses</a></li>
           <li><a href="#teachers">Trainers</a></li>
           <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
           <li><a href="{{route( 'company_register' )}}">Company</a></li>
           {{-- <li><a href="#footer">Contact</a></li> --}}
-          <li><a href="{{route('login')}}">Login</a></li>          
+                    
 
       
        @auth
@@ -83,6 +83,7 @@
               </div>
           </li>
           @else
+          <li><a href="{{route('login')}}">Login</a></li>
           <li><a href="{{route( 'student_registration' )}}">Sign Up</a></li>
           @endauth
 
@@ -107,7 +108,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Mentor</h3>
+            <h3>Success With Us</h3>
             <p>
               Myanmar, Yangon <br><br>
               <strong>Phone:</strong> +959 55488 55<br>
@@ -115,7 +116,7 @@
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          {{-- <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
@@ -124,7 +125,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
-          </div>
+          </div> --}}
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
@@ -139,10 +140,10 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Success With Us</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+           {{--  <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            </form> --}}
           </div>
 
         </div>

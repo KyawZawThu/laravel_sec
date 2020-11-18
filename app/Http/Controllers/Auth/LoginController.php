@@ -49,6 +49,9 @@ class LoginController extends Controller
             case 'admin':
                     return 'scout';
                 break;
+            case 'company':
+                    return 'detailc';
+            break;
             default:
                 return 'frontend';
         }

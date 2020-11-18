@@ -41,6 +41,18 @@
               <input type="file" name="photo" class="form-control-file r">
 
             </div>
+
+             <div class="form-group">
+              <label>Description:</label>
+              <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{old('description')}}" placeholder="Course Description..">
+              @error('description')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+
+
             <div class="form-group">
                 <label>Teacher:</label>
                 <select name="teacher" class="form-control">

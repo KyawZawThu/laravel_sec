@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->text('photo');
+            $table->text('description');
             $table->unsignedBigInteger('teacher_id');
 
             $table->foreign('teacher_id')

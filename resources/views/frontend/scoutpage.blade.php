@@ -183,11 +183,10 @@
                      </a>
                   </div> --}}
                   <a href="{{route('mainpage')}}" class="btn btn-primary bk"> Back </a>
+
                 <form method="" action="" class="getin">
                 @csrf
                  <button class="btn btn-success mt-2 chec">Get in Touch</button>          
-
-
                </div>
                <div class="paw"></div>
 
@@ -335,6 +334,7 @@
                  let order = localStorage.getItem('items');
                $.post("{{route('fescout.store')}}",{order:order,notes:notes},function (response) {
                   console.log(response);
+                  alert("Thanks we will contact soon")
                   localStorage.clear();
                })
                e.preventDefault();

@@ -78,6 +78,7 @@ class StudentController extends Controller
         $student->position = $request ->position;
         $student->est_salary = $request ->est_salary;
 
+        
         $student->photo = $path;
         $student->user_id = $user->id;
         $student->save();

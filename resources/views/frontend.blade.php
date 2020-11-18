@@ -96,24 +96,24 @@
               <img src="{{ asset($row->photo) }}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <a href="frontend_registration"><h4 class="btn">{{ $row->name }}</h4></a>
+                  <a href="{{ $row->url }}" target="_blank"><h4 class="btn">{{ $row->name }}</h4></a>
                     <!-- Button trigger modal -->
 
-                  <p class="price">$169</p>
+                  {{-- <p class="price">$169</p> --}}
                 </div>
 
                 <h3><a href="course-details.html"></a></h3>
-                <p>{{ $row->url }}</p>
+                <p>{{ $row->description }}</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
                   <div class="trainer-profile d-flex align-items-center">
                     {{-- <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt=""> --}}
                     <span></span>
                   </div>
-                  <div class="trainer-rank d-flex align-items-center">
+{{--                   <div class="trainer-rank d-flex align-items-center">
                     <i class="bx bx-user"></i>&nbsp;50
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
@@ -173,10 +173,10 @@
             </div>
           </div> <!-- End Course Item--> --}}
 
-        </div>
+{{--         </div>
 
       </div>
-    </section><!-- End Popular Courses Section -->
+    </section> --}}<!-- End Popular Courses Section -->
 {{-- 
     <!-- ======= Trainers Section ======= -->
     <section id="teachers" class="trainers">
@@ -255,7 +255,7 @@
     </section><!-- End Trainers Section -->
 
        <!-- ======= Student Section ======= -->
-    <section id="students" class="students">
+  {{--   <section id="students" class="students">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -265,17 +265,22 @@
 
 
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            @foreach($confirmed as $project)
+        <div class="row" data-aos="zoom-in" data-aos-delay="100"> --}}
+         {{--  @foreach($projects as $project)
+          @if($project->status==1) --}}
+           {{--  @foreach($students as $student)
+          
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="{{ asset( $project->student->photo ) }}" class="img-fluid" alt="">
+              <img src="{{ asset( $student->photo ) }}" class="img-fluid" alt="">
               <div class="member-content">
-                <h4>{{$project->student->name}}</h4>
-                <span>{{$project->student->email}}</span>
-                <h5>{{$project->url}}</h5>
+                <h4>{{$student->name}}</h4>
+                <span>{{$student->email}}</span>
+                @foreach($student->projects as $studentprj)
+                <h5>{{$studentprj->url}}</h5>
+                @endforeach
                 <p>
-                  {{$project->student->description}}
+                  {{$student->description}}
                 </p>
                 <div class="social">
                   <a href=""><i class="icofont-twitter"></i></a>
@@ -283,20 +288,28 @@
                   <a href=""><i class="icofont-instagram"></i></a>
                   <a href=""><i class="icofont-linkedin"></i></a>
 
+                  @role('company')
                   
-                  <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">Detail</a>
-              {{-- <button class="btn btn-success checkout" data-id="{{$project->student->id}}" data-name="{{$project->student->name}}" data-photo="{{$project->student->photo}}" data-email="{{$project->student->email}}" data-description="{{$project->student->description}}">
+              <a href="{{route('detailsc')}}" class="btn btn-success checkout" data-id="{{$student->id}}" data-name="{{$student->name}}" data-photo="{{$student->photo}}" data-email="{{$student->email}}" data-description="{{$student->description}}">
               Scout
-            </button> --}}
+            </a>
+            @else
+            <a href="#footer" class="btn btn-success"> Contact Us to Scout </a>
+            
+            @endrole
             
 
 
                 </div>
               </div>
             </div>
-          </div>
-          @endforeach
-          </section><!-- End Trainers Section -->
+          </div> --}}
+{{--           @endforeach
+        
+        @endif --}}
+
+      {{-- @endforeach
+          </section> --}}<!-- End Trainers Section -->
 
   </main><!-- End #main -->
 

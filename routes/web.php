@@ -60,5 +60,7 @@ Auth::routes(['register'=>false]);
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('detailc','FrontendController@detailc')->name('detailc');
 Route::resource('upload', 'UploadController');
 Route::resource('fescout', 'FeScoutController');
+// Route::resource('fecourse', 'FeCourseController');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Teacher;
+use Auth;
 
 
 class CourseController extends Controller
@@ -46,6 +47,7 @@ class CourseController extends Controller
             "name" => "required",
             "url"  => "required",
             "photo"=> "required",
+            "description"=>"required",
             "teacher"=> "required"
         ]);
 
@@ -63,8 +65,18 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->url = $request->url;
         $course->photo = $path;
+        $course->description=$request->description;
         $course->teacher_id = $request->teacher;
         $course->save();
+
+
+        // $course = Course::find($id);  
+        // $user=Auth::user();
+        // $student=$user->student;
+        // $student_id=$student->id;
+
+        // $course->students()->attach($student_id);
+        // $project->student_id = $student_id;
 
         return redirect()->route('course.index');
     }
