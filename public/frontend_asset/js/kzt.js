@@ -4,7 +4,7 @@ $(document).ready(function(){
 		// alert("ok");	
 		var id=$(this).data("id");
 		var name=$(this).data("name");
-		var url=$(this).data("url");
+		
 		var photo=$(this).data("photo");
 		var email=$(this).data("email");
 		var description=$(this).data("description");
@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var item={
 			id:id,
 			name:name,
-			url:url
+			
 			photo:photo,
 			email:email,
 			description:description,

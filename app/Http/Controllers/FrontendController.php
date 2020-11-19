@@ -17,8 +17,8 @@ class FrontendController extends Controller
         $projects=Project::all();
         $students = Student::all();
     	$confirmed=Project::where('status',1)->with('student')->get();
-      // dd($confirmed);
-    	return view('/frontend', compact('projects','confirmed', 'courses', 'teachers','students'));
+      $st = Student::find(1);
+    	return view('/frontend', compact('projects','confirmed', 'courses', 'teachers','students','st'));
     }
 
     public function detailsc($value='')
@@ -60,7 +60,10 @@ public function frontend_company_register($value=''){
   {
     $students = Student::all();
     $user=Auth::user();
-    $student=$user->student;    
+    $students=$user->student;
+    // dd($student);
+
+    $user = App\Models\Student::find(1);
     return view('frontend.mylearing',compact('students'));
   }
 

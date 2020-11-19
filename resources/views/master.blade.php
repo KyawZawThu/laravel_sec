@@ -46,7 +46,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="{{route('mainpage')}}">Mentor</a></h1>
+      <h1 class="logo mr-auto"><a href="{{route('mainpage')}}">Success With Us</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -58,8 +58,8 @@
 
           <li><a href="#popular-courses">Courses</a></li>
           {{-- <li><a href="#teachers">Trainers</a></li> --}}
-          <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
-          <li><a href="{{route( 'company_register' )}}">Company</a></li>
+          {{-- <li><a href="{{route( 'teacher_register' )}}">Teacher</a></li>
+          <li><a href="{{route( 'company_register' )}}">Company</a></li> --}}
           {{-- <li><a href="#footer">Contact</a></li> --}}
                     
 

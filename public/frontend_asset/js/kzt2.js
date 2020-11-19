@@ -5,6 +5,7 @@ $("document").ready(function(){
 		var id=$(this).data("id");
 		var name=$(this).data("name");
 		var photo=$(this).data("photo");
+		var url=$(this).data("url");
 		var teacher=$(this).data("teacher");
 		var description=$(this).data("description");
 
@@ -12,6 +13,7 @@ $("document").ready(function(){
 			id:id,
 			name:name,
 			photo:photo,
+			url:url,
 			teacher:teacher,
 			description:description,
 		}
@@ -49,7 +51,7 @@ $("document").ready(function(){
                   </a>
                </div>
                <div style="" class=""><img src="${v.photo}"></div>
-
+               <a href="${v.url}" class="btn btn-primary mt-5">View</a>
                <p class="student-profile-text-body">&quot;${v.description}&quot;</p>
                <div class="student-profiles-section-mobile">
                   <div class="pc-student-mobile-headline">Education</div>

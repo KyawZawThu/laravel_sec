@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class FstuController extends Controller
 {
@@ -35,7 +37,53 @@ class FstuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|min:5",
+            "email" => "required",
+            "description" => "sometimes | required",
+            "photo" => "sometimes | required"
+        ]);
+
+
+        // if include file, upload
+        if($request->file()) {
+            // 624872374523_a.jpg
+            $fileName = time().'_'.$request->photo->getClientOriginalName();
+
+            // brandimg/624872374523_a.jpg
+            $filePath = $request->file('photo')->storeAs('studentimg', $fileName, 'public');
+
+            $path = '/storage/'.$filePath;
+        }
+
+        // store
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // $corsestudent = new CorseStudent;
+        // $corsestudent->save();
+
+        $student = new Student;
+        $student->name = $request->name;
+        $student->description = $request->description;
+        $student->position = $request ->position;
+        $student->est_salary = $request ->est_salary;
+
+        
+        $student->photo = $path;
+        $student->user_id = $user->id;
+        $student->save();
+
+
+
+
+
+        $user->assignRole('student');
+
+        return redirect()->route('home');
     }
 
     /**
