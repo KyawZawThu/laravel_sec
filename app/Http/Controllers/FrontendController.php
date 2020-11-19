@@ -7,6 +7,7 @@ use App\Project;
 use App\Course;
 use App\Teacher;
 use App\Student;
+use App\Scout;
 use Auth;
 class FrontendController extends Controller
 {
@@ -55,6 +56,8 @@ public function frontend_company_register($value=''){
   {
     $students = Student::all();
     $confirmed=Project::where('status',1)->with('student')->get();
+    $confirmed2=Scout::where('status',1)->with('students')->get();
+    dd($confirmed2);
     return view('frontend.detailc',compact('students','confirmed'));
   }
 
