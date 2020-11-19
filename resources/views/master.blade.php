@@ -52,8 +52,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#about">About</a></li>
+          {{-- <li class="active"><a href="#header">Home</a></li> --}}
+          {{-- <li><a href="#about">About</a></li> --}}
           <li><a href="{{route('detailc')}}">Student</a></li>
 
           <li><a href="#popular-courses">Courses</a></li>
@@ -70,17 +70,22 @@
                   {{ Auth::user()->name }}
               </a>
 
+
+
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a href="{{route('mylearing')}}" class="dropdown-item">My Course</a>
                   <a class="dropdown-item" href="{{ route('mainpage') }}"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
+
+
                   </a>
 
-                  
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                   </form>
+
                   
               </div>
           </li>

@@ -29,7 +29,7 @@ Route::get('frontend2', function(){
 });
 
 
-Route::get('frontend','FrontendController@frontend')->name('mainpage');
+Route::get('/','FrontendController@frontend')->name('mainpage');
 // Route::get('frontend_student_login','FrontendController@frontend')->name('mainpage');
 
 Route::get('detailsc','FrontendController@detailsc')->name('detailsc');
