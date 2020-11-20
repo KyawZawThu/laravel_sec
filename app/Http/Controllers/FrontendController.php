@@ -56,8 +56,15 @@ public function frontend_company_register($value=''){
   {
     $students = Student::all();
     $confirmed=Project::where('status',1)->with('student')->get();
-    $confirmed2=Scout::where('status',1)->with('students')->get();
-    dd($confirmed2);
+    
+    // $c2=Scout::where('status',1)->id()->get();
+    
+    
+    
+    // $as=Scout::find($c2);
+    // dd($as);
+    
+    
     return view('frontend.detailc',compact('students','confirmed'));
   }
 
